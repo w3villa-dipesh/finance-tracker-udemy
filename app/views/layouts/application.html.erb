@@ -12,8 +12,15 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="container">
+      <% if notice || alert%>
+        <%= render 'layouts/messages'%>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
+  <script>
+  // fade the notice out after 2 seconds
+  window.setTimeout("document.querySelector('#successMessage').style.display='none';", 2000);
+</script>
 </html>
