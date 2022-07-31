@@ -5,14 +5,23 @@ class StocksController < ApplicationController
       @stock = Stock.new_lookup(params[:stock])
       # render json: @stock
       if @stock
-        render 'users/my_portfolio'
+        respond_to do |format|
+          format.js { render partial:'users/result'  }
+        end
+        # render 'users/my_portfolio'
       else
-        flash[:alert]="Not a valid Stock"
-        redirect_to my_portfolio_path
+        respond_to do |format|
+          flash.now[:alert]="Not a valid Stock"
+          format.js { render partial:'users/result'  }
+        end
+          # redirect_to my_portfolio_path
       end
     else
-      flash[:alert] = "Please Enter a Symbol to Search."
-      redirect_to my_portfolio_path
+      respond_to do |format|
+        flash.now[:alert] = "Please Enter a Symbol to Search."
+        format.js { render partial:'users/result'  }
+      end
+      # redirect_to my_portfolio_path
     end
   end
 end
