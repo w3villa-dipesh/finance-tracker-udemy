@@ -18,6 +18,6 @@
 
 </div>
 <%#= render 'users/result'%>
-<% if @tracked_stocks %>
+<% if @tracked_stocks.present? %>
   <%= render 'stocks/list' %>
 <% end %>
