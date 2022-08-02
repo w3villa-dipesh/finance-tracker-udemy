@@ -3,9 +3,8 @@
     <table class="table table-bordered table-hover">
       <thead>
         <tr>
-          <th scope="col">Ticker</th>
+          <th scope="col">Email</th>
           <th scope="col">Name</th>
-          <th scope="col">Price</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
@@ -13,8 +12,7 @@
         <% @friends.each do |f|%>
           <tr>
             <th scope="row"><%= f.email %></th>
-            <td><%= f.first_name %></td>
-            <td><%= f.last_name %></td>
+            <td><%= f.full_name %></td>
             <td><%= link_to 'View Profile', user_path(f),class: 'btn btn-sm btn-success' %>
               <%= link_to 'Stop following', friendship_path(f), method: :delete, data: {confirm: 'Are you sure?'},class: 'btn btn-warning' %>
             </td>
