@@ -1,6 +1,9 @@
-<h1>Welcome to the Finance Tracker App.</h1>
+<h1>Welcome to the Finance Tracker App <%= current_user.first_name %></h1>
+<p>Your Details:</p>
 <pre>
-    User Country:<%= @country %>
-    User City:<%= @city %>
-    User Address:<%= @address %>
+    Country:<%= @country %>
+    City:<%= @city %>
+    Address:<%= @address %>
+    Primary Currency:<%= @currency %>
+    Ip Address:<%= @ip_adress %>
 </pre>
